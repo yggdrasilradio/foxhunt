@@ -66,6 +66,7 @@
 	' Highlight current square
 100	gosub 3000
 
+	' Has game been won yet?
 	if fi <> i or fj <> j or a <> 13 then
 
 		' Continue game
@@ -110,7 +111,6 @@
 		next
 	next
 	return
-
 
 	' Reset the machine
 6000	poke &h71, 0
