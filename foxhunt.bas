@@ -102,20 +102,15 @@
 	return
 
 	' Draw grid
-
 4000	hcolor 4 ' White
-	y1 = 21
-	y2 = y1 + 12
-	for j0 = 1 to 10
-		x1 = 21
-		x2 = x1 + 12
-		for i0 = 1 to 17
-			hline (x1, y1)-(x2, y2), pset, b
-			x1 = x1 + 16
-			x2 = x1 + 12
+	y = 21
+	for j = 1 to 10
+		x = 21
+		for i = 1 to 17
+			hline (x, y)-(x + 12, y + 12), pset, b
+			x = x + 16
 		next
-		y1 = y1 + 16
-		y2 = y1 + 12
+		y = y + 16
 	next
 	return
 
