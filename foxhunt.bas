@@ -108,17 +108,13 @@
 4000	hcolor 4 ' White
 	hline (21, 21)-(33, 33), pset, b
 	hget (21, 21)-(33, 33), 1
-	y = 21
-	for j = 1 to 10
-		x = 21
-		for i = 1 to 17
+	for y = 21 to 165 step 16
+		for x = 21 to 277 step 16
 
 			' Draw sprite
 			hput (x, y)-(x + 12, y + 12), 1, pset
-			x = x + 16
 
 		next
-		y = y + 16
 	next
 	return
 
