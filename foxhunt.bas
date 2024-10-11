@@ -112,7 +112,7 @@
 		for x = 21 to 277 step 16
 
 			' Draw sprite
-			hput (x, y)-(x + 12, y + 12), 1, pset
+			hput (x, y)-(x + 12, y + 12), 1
 
 		next
 	next
