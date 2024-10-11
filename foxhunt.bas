@@ -106,6 +106,7 @@
 
 	' Draw grid
 4000	hcolor 4 ' White
+	palette 4, 0 ' Don't display anything till we're done
 	hline (21, 21)-(33, 33), pset, b ' Draw first cell
 	hget (21, 21)-(33, 33), 1 ' Get it
 	for x = 21 to 277 step 16 ' Stamp it across the top row
@@ -115,6 +116,7 @@
 	for y = 21 to 165 step 16 ' Stamp it down the screen
 		hput (21, y)-(289, y + 12), 1
 	next
+	palette 4, 63 ' Display the whole grid at once
 	return
 
 	' Reset the machine
