@@ -38,8 +38,8 @@
 	' Init graphics
 	hscreen 2
 
-	' Reserve memory for sprite
-	hbuff 1, 100
+	' Allocate memory for sprites
+	hbuff 1, 1760
 
 	' Clear screen
 10	hcls 0
@@ -106,15 +106,14 @@
 
 	' Draw grid
 4000	hcolor 4 ' White
-	hline (21, 21)-(33, 33), pset, b
-	hget (21, 21)-(33, 33), 1
-	for y = 21 to 165 step 16
-		for x = 21 to 277 step 16
-
-			' Draw sprite
-			hput (x, y)-(x + 12, y + 12), 1
-
-		next
+	hline (21, 21)-(33, 33), pset, b ' Draw first cell
+	hget (21, 21)-(33, 33), 1 ' Get it
+	for x = 21 to 277 step 16 ' Stamp it across the top row
+		hput (x, 21)-(x + 12, 33), 1
+	next
+	hget (21,21)-(289,33), 1 ' Get that whole top row
+	for y = 21 to 165 step 16 ' Stamp it down the screen
+		hput (21, y)-(289, y + 12), 1
 	next
 	return
 
