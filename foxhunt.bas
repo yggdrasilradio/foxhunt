@@ -53,8 +53,14 @@
 	r = rnd(-timer)
 
 	' Place the "fox" somewhere randomly
-	fi = int(16 * rnd(0)) + 2 ' X = Random number 2-17
-	fj = int(9 * rnd(0)) + 2  ' Y = Random number 2-10
+20	fi = int(17 * rnd(0)) + 1 ' X = Random number 1-17
+	fj = int(10 * rnd(0)) + 1 ' Y = Random number 1-10
+
+	' But not too close to the starting position
+	d = int(sqr((fi - 1)^2 + (fj - 1)^2) / 2)
+	if d < 3 then
+		goto 20
+	end if
 
 	' Zero moves so far
 	m = 0
