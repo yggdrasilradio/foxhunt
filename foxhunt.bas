@@ -40,6 +40,7 @@
 
 	' Allocate memory for sprites
 	hbuff 1, 1760
+	hbuff 2, 100
 
 	' Clear screen
 10	hcls 0
@@ -84,8 +85,10 @@
 	end if
 
 	' You win! Play again?
-	hcolor 7 ' Orange
-	hprint (3 + (i - 1) * 2, 3 + (j - 1) * 2), "F"
+	x = 24 + (i - 1) * 16 - 3
+	y = 24 + (j - 1) * 16 - 3
+	hput (x, y)-(x + 12, y + 12), 2
+
 	hcolor 5 ' Cyan
 	hprint (0, 0), "        "
 	hprint (27, 0), "             "
@@ -94,6 +97,20 @@
 	exec &hadfb ' Block until key is pressed
 	c$ = inkey$
 	goto 10
+
+	' Blank out palettes
+1000	palette 0, 0
+	palette 1, 0
+	palette 4, 0
+	palette 7, 0
+	return
+
+	' Restore palettes
+2000	palette 0, 0  ' Black
+	palette 1, 53 ' Pale yellow
+	palette 4, 63 ' White
+	palette 7, 38 ' Orange
+	return
 
 	' Highlight square at i, j
 3000	t = (t + 1) and 7
@@ -112,17 +129,19 @@
 
 	' Draw grid
 4000	hcolor 4 ' White
-	palette 4, 0 ' Don't display anything till we're done
+	gosub 1000 ' Don't display anything till we're done
 	hline (21, 21)-(33, 33), pset, b ' Draw first cell
 	hget (21, 21)-(33, 33), 1 ' Get it
+	gosub 8000 ' Draw fox
+	hget (21, 21)-(33, 33), 2 ' Get it
 	for x = 21 to 277 step 16 ' Stamp it across the top row
 		hput (x, 21)-(x + 12, 33), 1
 	next
-	hget (21,21)-(289,33), 1 ' Get that whole top row
+	hget (21, 21)-(289, 33), 1 ' Get that whole top row
 	for y = 21 to 165 step 16 ' Stamp it down the screen
 		hput (21, y)-(289, y + 12), 1
 	next
-	palette 4, 63 ' Display the whole grid at once
+	gosub 2000 ' Display the whole grid at once
 	return
 
 	' Reset the machine
@@ -154,4 +173,27 @@
 		m = m + 1
 		hprint (13, 1), str$(m) + " moves"
 	end if
+	return
+
+	' Draw the fox
+8000	restore
+	for y = 22 to 33
+		read a$
+		for x = 22 to 32
+			hcolor val(mid$(a$, x - 21, 1))
+			hset (x, y)
+		next
+	next
+	data "44744444744"
+	data "44744444744"
+	data "47174447174"
+	data "47777777774"
+	data "47777777774"
+	data "47117771174"
+	data "41101710114"
+	data "41111711114"
+	data "44111711144"
+	data "44471717444"
+	data "44777077744"
+	data "47777777774"
 	return
