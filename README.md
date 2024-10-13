@@ -1,4 +1,4 @@
-FOXHUNT: A "Find the Fox" puzzle game in BASIC for a Tandy Color Computer 3
+FOX HUNT: An original "Find the Fox" puzzle game in BASIC for the Tandy Color Computer 3
 ==========
 
 ![](images/foxhunt.jpg)
