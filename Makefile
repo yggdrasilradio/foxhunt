@@ -9,4 +9,4 @@ endif
 	cat redistribute/foxhunt.bas
 	rm -f redistribute/foxhunt.dsk
 	decb dskini redistribute/foxhunt.dsk
-	decb copy -r -2 -b redistribute/foxhunt.bas redistribute/foxhunt.dsk,FOXHUNT.BAS
+	decb copy -tr redistribute/foxhunt.bas redistribute/foxhunt.dsk,FOXHUNT.BAS
