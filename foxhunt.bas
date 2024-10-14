@@ -95,7 +95,7 @@
 3000	t = (t + 1) and 7
 	x = 24 + (i - 1) * 16 - 3
 	y = 24 + (j - 1) * 16 - 3
-	if t and 4 then
+	if t and 2 then
 		hline (x, y)-(x + 12, y + 12), preset, b
 	else
 		hcolor 4 ' White
