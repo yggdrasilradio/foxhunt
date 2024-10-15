@@ -5,7 +5,6 @@
 	'
 
 	' Reset machine on BREAK
-	pclear 1
 	on brk goto 6000
 
 	' Modify HPRINT
