@@ -94,14 +94,14 @@
 3000	t = (t + 1) and 7
 	x = 24 + (i - 1) * 16 - 3
 	y = 24 + (j - 1) * 16 - 3
-	if t and 2 then
-		hline (x, y)-(x + 12, y + 12), preset, b
+	oi = i
+	oj = j
+	gosub 7000 ' Update position
+	if (t and 2) and i = oi and j = oj then
+		hline (x, y)-(x + 12, y + 12), preset, b ' Blank out cursor
 	else
 		hcolor 4 ' White
-		hline (x, y)-(x + 12, y + 12), pset, b
-
-		' Update position
-		gosub 7000
+		hline (x, y)-(x + 12, y + 12), pset, b ' Draw cursor
 	end if
 	return
 
