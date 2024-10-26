@@ -21,7 +21,7 @@
 	hbuff 2, 100
 
 	' Clear screen
-10	hcls 0
+10	hcls
 
 	' Title
 	hcolor 5 ' Cyan
@@ -112,11 +112,11 @@
 	hget (21, 21)-(33, 33), 1 ' Get it
 	gosub 8000 ' Draw fox
 	hget (21, 21)-(33, 33), 2 ' Get it
-	for x = 21 to 277 step 16 ' Stamp it across the top row
+	for x = 21 to 277 step 16 ' Stamp first cell across the top row
 		hput (x, 21)-(x + 12, 33), 1
 	next
 	hget (21, 21)-(289, 33), 1 ' Get that whole top row
-	for y = 21 to 165 step 16 ' Stamp it down the screen
+	for y = 37 to 165 step 16 ' Stamp it down the screen
 		hput (21, y)-(289, y + 12), 1
 	next
 	gosub 2000 ' Display the whole grid at once
