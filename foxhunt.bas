@@ -154,24 +154,7 @@
 	return
 
 	' Draw the fox
-8000	restore
-	for y = 22 to 33
-		for x = 22 to 32
-			read c
-			hcolor c
-			hset (x, y)
-		next
-	next
-	data 4, 4, 7, 4, 4, 4, 4, 4, 7, 4, 4
-	data 4, 4, 7, 4, 4, 4, 4, 4, 7, 4, 4
-	data 4, 7, 1, 7, 4, 4, 4, 7, 1, 7, 4
-	data 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4
-	data 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4
-	data 4, 7, 1, 1, 7, 7, 7, 1, 1, 7, 4
-	data 4, 1, 1, 0, 1, 7, 1, 0, 1, 1, 4
-	data 4, 1, 1, 1, 1, 7, 1, 1, 1, 1, 4
-	data 4, 4, 1, 1, 1, 7, 1, 1, 1, 4, 4
-	data 4, 4, 4, 7, 1, 7, 1, 7, 4, 4, 4
-	data 4, 4, 7, 7, 7, 0, 7, 7, 7, 4, 4
-	data 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4
+8000	hdraw "BM22,21C4D12BM32,21D12BM22,21R9BM23,22R1C7R1C4R5C7R1C4R0BM23,23R1C7R1C4R5C7R1C4R0BM23,24C7R1C1R1C7R1C4R3C7R1C1R1C7R0"
+	hdraw "BM23,25R8BM23,26R8BM23,27R1C1R2C7R3C1R2C7R0BM23,28C1R2C0R1C1R1C7R1C1R1C0R1C1R1BM23,29R4C7R1C1R3BM23,30C4R1C1R3C7R1C1R3C4R0"
+	hdraw "BM23,31R2C7R1C1R1C7R1C1R1C7R1C4R1BM23,32R1C7R3C0R1C7R3C4R0BM23,33C7R8"
 	return
