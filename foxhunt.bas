@@ -16,9 +16,9 @@
 	' Init graphics
 	hscreen 2
 
-	' Allocate memory for sprites
-	hbuff 1, 1760
-	hbuff 2, 100
+	' Allocate memory for graphics
+	hbuff 1, 1760 ' Game grid
+	hbuff 2, 100  ' Fox
 
 	' Clear screen
 10	hcls
@@ -108,15 +108,18 @@
 	' Draw grid
 4000	hcolor 4 ' White
 	gosub 1000 ' Don't display anything till we're done
-	hdraw "BM21,21R12D12L12U12" ' Draw first cell
-	hget (21, 21)-(33, 33), 1 ' Get it
-	gosub 8000 ' Draw fox
-	hget (21, 21)-(33, 33), 2 ' Get it
-	for x = 21 to 277 step 16 ' Stamp first cell across the top row
-		hput (x, 21)-(x + 12, 33), 1
-	next
-	hget (21, 21)-(289, 33), 1 ' Get that whole top row
-	for y = 37 to 165 step 16 ' Stamp it down the screen
+	if g = 0 then
+		hdraw "BM21,21R12D12L12U12" ' Draw first cell
+		hget (21, 21)-(33, 33), 1 ' Get it
+		gosub 8000 ' Draw fox
+		hget (21, 21)-(33, 33), 2 ' Get it
+		for x = 21 to 277 step 16 ' Stamp first cell across the top row
+			hput (x, 21)-(x + 12, 33), 1
+		next
+		hget (21, 21)-(289, 33), 1 ' Get that whole top row
+		g = 1 ' Don't bother doing all that on subsequent games
+	end if
+	for y = 21 to 165 step 16 ' Stamp rows of cells down the screen
 		hput (21, y)-(289, y + 12), 1
 	next
 	gosub 2000 ' Display the whole grid at once
