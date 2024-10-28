@@ -108,7 +108,7 @@
 	' Draw grid
 4000	hcolor 4 ' White
 	gosub 1000 ' Don't display anything till we're done
-	hline (21, 21)-(33, 33), pset, b ' Draw first cell
+	hdraw "BM21,21R12D12L12U12" ' Draw first cell
 	hget (21, 21)-(33, 33), 1 ' Get it
 	gosub 8000 ' Draw fox
 	hget (21, 21)-(33, 33), 2 ' Get it
